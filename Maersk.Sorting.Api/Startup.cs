@@ -23,6 +23,7 @@ namespace Maersk.Sorting.Api
                 .AddNewtonsoftJson(options => options.SerializerSettings.Converters.Add(new StringEnumConverter()));
 
             services.AddSingleton<ISortJobProcessor, SortJobProcessor>();
+            services.AddHostedService<SortJobBackGroundService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
